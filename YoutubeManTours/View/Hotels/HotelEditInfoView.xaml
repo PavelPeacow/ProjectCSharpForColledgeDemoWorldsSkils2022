@@ -1,0 +1,38 @@
+﻿<Window x:Class="YoutubeManTours.View.HotelEditInfoView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YoutubeManTours.View"
+        mc:Ignorable="d"
+        Title="Редактирование отеля" Height="400" Width="300">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Content="Название отеля: "/>
+        <Label Grid.Row="1" Content="Количество звезд: "/>
+        <Label Grid.Row="2" Content="Описание отеля: "/>
+        <Label Grid.Row="3" Content="Страна: "/>
+
+        <TextBox x:Name="TxtNameHotel" Grid.Row="0" Grid.Column="1"/>
+        <TextBox x:Name="TxtCountStars" Grid.Row="1" Grid.Column="1"/>
+        <TextBox x:Name="TxtDescriptionHotel" Grid.Row="2" Grid.Column="1"/>
+        <ComboBox DisplayMemberPath="Name" Name="CmbNameCountry" Grid.Row="3" Grid.Column="1"/>
+
+        <Button x:Name="BtnDeleteHotel" Click="BtnDeleteHotel_Click" Content="Удалить" Grid.Row="4" Grid.Column="0"/>
+        <Button x:Name="BtnUpdateHotel" Click="BtnUpdateHotel_Click" Content="Обновить" Grid.Row="4" Grid.Column="1"/>
+
+    </Grid>
+</Window>

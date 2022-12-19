@@ -1,0 +1,47 @@
+﻿<Window x:Class="YoutubeManTours.View.HotelView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YoutubeManTours.View"
+        mc:Ignorable="d"
+        MinHeight="500" MinWidth="1000"
+        Title="Отели" MaxHeight="1000" MaxWidth="1500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Name="DataGridHotels" Grid.Row="0" AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название отеля" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Количетство Звезд" Binding="{Binding CountOfStars}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Страна" Binding="{Binding Country.Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Количество имеющихся туров" Binding="{Binding Country.Code}"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="BtnEditHotelInfo" Content="Редактировать" Click="BtnEditHotelInfo_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1">
+            <StackPanel x:Name="PaginationPanel" Orientation="Horizontal">
+                <Button Style="{StaticResource Round}" Name="GoFirstPageButton" Content="&lt;&lt;" FontSize="30" Click="GoFirstPageButton_Click"/>
+                <Button Style="{StaticResource Round}" Margin="40 0 0 0" x:Name="GoPrevPageButton" Content="&lt;" FontSize="30" Click="GoPrevPageButton_Click"/>
+                <TextBox x:Name="TxtCurrentPageNumber" TextChanged="TxtCurrentPageNumber_TextChanged" Width="50"/>
+                <Label Margin="40 0 0 0"  Name="LblTotalPages" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Button Style="{StaticResource Round}" Margin="40 0 0 0" x:Name="GoNextPageButton" Content="&gt;" FontSize="30" Click="GoNextPageButton_Click"/>
+                <Button Style="{StaticResource Round}" Margin="40 0 0 0" x:Name="GoLastPageButton" Content="&gt;&gt;" FontSize="30" Click="GoLastPageButton_Click"/>
+
+                <Button Padding="10 0 10 0" Margin="40 0 0 0" Style="{StaticResource Round}" x:Name="AddNewHotelButton" Content="Добавить новый отель" FontSize="20" Click="AddNewHotelButton_Click"/>
+            </StackPanel>
+        </WrapPanel>
+
+    </Grid>
+</Window>
